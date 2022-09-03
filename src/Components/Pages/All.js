@@ -6,7 +6,7 @@ const All = () => {
   console.log(blogs);
   return (
     <div>
-      <h1>This is all</h1>
+      <h1>All Blogs</h1>
       <Row>
         {blogs.map((bl) => (
           <Col>

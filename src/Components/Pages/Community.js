@@ -1,22 +1,32 @@
-import React from 'react';
-import { Button, Card, Col, Row } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Badge, Button, Card, Col, Row } from 'react-bootstrap';
 
 const Community = () => {
+    const [searchName,setSearchName]=useState('')
     const blogs = JSON.parse(localStorage.getItem("blogs"));
     return (
-        <div>
-            <h1>Community Blogs</h1>
+        <div className='my-5'>
+            <h1 className='text-center '>Community Blogs</h1>
+            <div className=" mb-3 w-75 mx-auto">
+          <input type="text" class="form-control" id="floatingInput"  placeholder="Search by name" onChange={(event)=>{setSearchName(event.target.value)}}></input>
+          </div>
             <Row>
-        {blogs.map((bl) => (bl.type==='community'&&
+        {blogs.filter((bl)=>{
+            if(searchName===""){
+                return bl
+            }
+            else if(bl.heading.toLowerCase().includes(searchName.toLowerCase())){
+                return bl
+            }
+        }).map((bl) => (bl.type==='community'&&
           <Col>
             <Card style={{ width: "18rem" }}>
               <Card.Img variant="top" src={bl.image} />
               <Card.Body>
-                <Card.Title>{bl.heading}</Card.Title>
+                <Card.Title>{bl.heading} <Badge bg="secondary">{bl.type.toUpperCase()}</Badge></Card.Title>
                 <Card.Text>
                   {bl.description}
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
               </Card.Body>
             </Card>
           </Col>

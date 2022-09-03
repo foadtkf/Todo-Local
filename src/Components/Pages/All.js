@@ -3,7 +3,7 @@ import { Badge, Button, Card, Col, Row } from "react-bootstrap";
 
 const All = () => {
     const [searchName,setSearchName]=useState('')
-  const blogs = JSON.parse(localStorage.getItem("blogs"));
+  const blogs = JSON.parse(localStorage.getItem("blogs")||"[]");
   return (
     <div className="my-5">
       <h1 className="text-center">All Blogs</h1>

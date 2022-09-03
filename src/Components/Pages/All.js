@@ -4,12 +4,11 @@ import { Badge, Button, Card, Col, Row } from "react-bootstrap";
 const All = () => {
     const [searchName,setSearchName]=useState('')
   const blogs = JSON.parse(localStorage.getItem("blogs"));
-  console.log(blogs);
   return (
     <div className="my-5">
       <h1 className="text-center">All Blogs</h1>
       <div className=" mb-3 w-75 mx-auto">
-          <input type="text" class="form-control" id="floatingInput"  placeholder="Search by name" onChange={(event)=>{setSearchName(event.target.value)}}></input>
+          <input type="text" className="form-control" id="floatingInput"  placeholder="Search by name" onChange={(event)=>{setSearchName(event.target.value)}}></input>
           </div>
       <Row>
         {blogs.filter((bl)=>{

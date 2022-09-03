@@ -16,16 +16,16 @@ const AddBlog = () => {
             <div className="w-50 mx-auto">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className=" mb-3">
-          <input type="text" class="form-control" id="floatingInput" {...register("heading")} placeholder="Heading"></input>
+          <input type="text" className="form-control" id="floatingInput" {...register("heading")} placeholder="Heading"></input>
             
           </div>
-          <Form.Select class="form-control mb-3" aria-label="Default select example" {...register("type")}>
+          <Form.Select className="form-control mb-3" aria-label="Default select example" {...register("type")}>
       <option value="tech">Tech</option>
       <option value="entertainment">Entertainment</option>
       <option value="community">Community</option>
     </Form.Select>
           <div className=" mb-3">
-          <input type="text" class="form-control" id="floatingInput" {...register("image")} placeholder="Image URL"></input>
+          <input type="text" className="form-control" id="floatingInput" {...register("image")} placeholder="Image URL"></input>
           </div>
           <div className=" mb-3">
           <Form.Control as="textarea" placeholder="Description" aria-label="With textarea"  {...register("description")}/>
